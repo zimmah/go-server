@@ -2,6 +2,7 @@ package router
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 )
@@ -17,5 +18,5 @@ func Router() {
 	mux.HandleFunc("GET /api/healthz", handleReadiness)
 
 	fmt.Printf("Server listening on %s\n", port)
-	server.ListenAndServe()
+	log.Fatal(server.ListenAndServe())
 }
